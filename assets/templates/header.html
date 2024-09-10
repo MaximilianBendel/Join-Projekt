@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <script src="/javascript/summary_user.js"></script>
+</head>
+<body>
+<p class="header_p">Kanban Project Management Tool</p>
+<div class="spaceBetween spaceBetweenMobile">
+    <a class="helpLink" href="./help.html" target="_blank">
+        <img class="help" src="./assets/img/helpIcon.png" alt="">
+    </a>
+    <div onclick="openSubMenu()" class="user">
+        <div class="userInitialsContainer">
+            <span class="userInitials" id="userInitials"></span>
+        </div>
+    </div>
+</div>
+
+<div id="submenucontainer" class="submenu display-none">
+    <button onclick="openLegalNotice()">Legal Notice</button>
+    <button onclick="openPrivacyPolice()">Privacy Police</button>
+    <button onclick="openLogIn()">Log Out</button>
+</div>
+</body>
+</html>

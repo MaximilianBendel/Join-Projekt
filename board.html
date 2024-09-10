@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/side_menu.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="icon" href="./assets/img/favIcon.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="./javascript/firebaseConfig.js"></script>
+    <script src="./javascript/includeHTML.js"></script>
+    <script src="./javascript/board.js"></script>
+    <script src="./javascript/boardHTML.js"></script>
+    <script src="./javascript/addTask.js"></script>
+    <script src="./javascript/add_contact.js"></script>
+    <script src="./javascript/loadLogInData.js"></script>
+
+</head>
+
+<body onload="initBoardSite(); initContactForaddTask()">
+
+    <header class="spaceBetween" w3-include-html="./assets/templates/header.html"></header>
+    <div class="sideMenuResponsive"  w3-include-html="./assets/templates/side_menu.html"></div>
+    <div class="flexbox">
+        <div class="content-wrapper-board">
+        <div class="right-side backgroudColor">
+            <div class="headerBoard">
+                <h1>Board</h1>
+                <div class="searchbarcontainer">
+                    <div class="searchbarwrapper">
+                        <input class="searchbarinput" id="search" oninput="filter()" type="text" placeholder="Find Task">
+                        <div class="separator"></div>
+                        <img src="./assets/img/board_img/search (1).png" alt="Image" class="searchbarimage">
+                    </div>
+                    <a href="./add_task.html" class="searchbarbutton">
+                        <span class="searchbuttonText">
+                            Add Task
+                        </span>
+                        <img class="plusbutton" src="./assets/img/board_img/add.png" alt="Button Image" class="buttonimage">
+                    </a>
+                </div>
+            </div>
+ 
+            <div class="canbanBoard">
+                <div class="fourth-size">
+                    <div class="taskHeader">
+                        <p class="toDoText">To do</p>
+                        <a href="./add_task.html">
+                            <img class="icon" src="./assets/img/addTask.png" alt="">
+                        </a>
+                    </div>
+                    <div id="toDo" class="dragArea" ondrop="moveTo(id='toDo')" ondragover="allowDrop(event)"></div>
+                </div>
+                <div class="fourth-size">
+                    <div class="taskHeader">
+                        <p class="inProgressText">In Progress</p>
+                        <a href="./add_task.html">
+                            <img class="icon" src="./assets/img/addTask.png" alt="">
+                        </a>
+                    </div>
+                    <div id="inProgress" class="dragArea" ondrop="moveTo(id='inProgress')"
+                        ondragover="allowDrop(event)"></div>
+                </div>
+                <div class="fourth-size">
+                    <div class="taskHeader">
+                        <p class="awaitFeedback">Await Feedback</p>
+                        <a href="./add_task.html">
+                            <img class="icon" src="./assets/img/addTask.png" alt="">
+                        </a>
+                    </div>
+                    <div id="awaitFeedback" class="dragArea" ondrop="moveTo(id='awaitFeedback')"
+                        ondragover="allowDrop(event)"></div>
+                </div>
+                <div class="fourth-size">
+                    <p class="doneText">Done</p>
+                    <div id="done" class="dragArea" ondrop="moveTo(id='done')" ondragover="allowDrop(event)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="d-noneAddTask taskOnBoardSite" id="addTaskOnBoardSite">
+   
+    </div>
+
+    <div class="d-noneAddTask taskOnBoardSite" id="openTaskOnBoardSite">
+        <div id="containerOpenTaskInBoardSize" class="containerOpenTaskInBoardSize"></div>
+    </div>
+
+</div>
+</body>
+</html>

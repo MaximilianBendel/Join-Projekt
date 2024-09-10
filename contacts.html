@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakte</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/contacts.css">
+    <link rel="stylesheet" href="./css/side_menu.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="icon" href="./assets/img/favIcon.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="./javascript/firebaseConfig.js"></script>
+    <script src="./javascript/includeHTML.js"></script>
+    <script src="./javascript/board.js"></script>
+    <script src="./javascript/boardHTML.js"></script>
+    <script src="./javascript/add_contact.js" defer></script>
+    <script src="./javascript/generatedHTML_add_contact.js"></script>
+    <script src="./javascript/welcomeScreen.js"></script>
+    <script src="./javascript/loadLogInData.js"></script>
+    <script src="./javascript/addTask.js"></script>
+</head>
+
+
+<body onload="init()">
+    <header class="spaceBetween spaceBetweenMobile" w3-include-html="./assets/templates/header.html"></header>
+
+    <div class="sideMenu" w3-include-html="./assets/templates/side_menu.html"></div>
+
+
+    <div class="contentWrapperContactPage">
+        <section class="contacts_list">
+            <div class="backgroudn_color_top_list">
+                <button onclick="showElement('slidingPage')" id="showPageButton">
+                    <div class="inside_the_button">
+                        <h2>Add New contact</h2>
+                        <img src="./assets/img/contacts_img/person_add.png" alt="">
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <section id="slogan" class="slogan">
+            <h1>Contacts</h1>
+            <div class="slogan_seperator"></div>
+            <p>Better with a team</p>
+            <img id="arrow" src="./assets/img/contacts_img/arrow-left-line.png" alt="Pfeil" class="hidden cursor" onclick="hideContactDetails()">
+        </section>
+
+
+        <section id="editContactDisplay" class="hidden sliding_div">
+            <div class="display_edit_contact">
+                <div class="image_container_edit" id="colorfulDiv">
+
+                </div>
+                <div class="display_edit_contact_name">
+                    <h1 id="edit_contact_name"></h1>
+                    <div class="display_edit_and_delete_buttons">
+
+                        <button onclick="showElement('slidingDiv')">
+                            <img src="./assets/img/contacts_img/edit.svg" alt="">
+                            <p>Edit</p>
+                        </button>
+                        <button onclick="deleteContactFromFirebase(currentEditIndex)">
+                            <img src="./assets/img/contacts_img/delete.svg" alt="">
+                            <p>delete</p>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="contact_informtaion">
+                <p>Contact Information</p>
+            </div>
+
+            <div class="edit_informations">
+                <h4>Email</h4>
+                <a id="edit_contact_email" href="emailto:xx">emailto@example.de</a>
+                <h4>Phone</h4>
+                <p id="edit_contact_phone">+0011223344</p>
+                <img id="menueditcontact" src="./assets/img/contacts_img/Menu Contact options.png" alt="Menubutton"
+                    onclick="toggleMenu(event)">
+
+            </div>
+
+            <div id="menuContainer" class="hidden menu-container">
+                <div class="menu-item" onclick="showElement('slidingDiv')">
+                    <img src="./assets/img/contacts_img/edit.svg" alt="Edit">
+                    <p>Edit</p>
+                </div>
+                <div class="menu-item" onclick="deleteContactResponsive(currentEditIndex)">
+                    <img src="./assets/img/contacts_img/delete.svg" alt="Delete">
+                    <p>Delete</p>
+                </div>
+
+
+        </section>
+
+        <section id="slidingDiv" class="hidden">
+            <div onclick="hideElement('slidingDiv')" class="close_button">
+                <img src="./assets/img/contacts_img/close.svg" alt="Close">
+            </div>
+            <div class="contact_content_left">
+                <img src="./assets/img/joinLogo.png" alt="">
+                <h1>Edit Contact</h1>
+                <p>Make changes to your contact!</p>
+            </div>
+            <div class="add_contact_input_fields edit_contact_input_fields">
+                <form id="editContactForm" class="flex_container">
+                    <div class="input_with_img">
+                        <input id="edit_contact_name_input" name="name" placeholder="Name" class="input_1" type="text"
+                            required minlength="2">
+                        <img src="./assets/img/contacts_img/person.svg" alt="Image" class="input_img">
+                    </div>
+                    <div class="input_with_img">
+                        <input id="edit_contact_email_input" name="email" placeholder="Email" class="input_1"
+                            type="email" required>
+                        <img src="./assets/img/log_in_img/mail.svg" alt="Image" class="input_img">
+                    </div>
+                    <div class="input_with_img">
+                        <input id="edit_contact_phone_input" name="phone" placeholder="Phone" class="input_1" type="number"
+                            required>
+                        <img src="./assets/img/contacts_img/call.svg" alt="Phone Icon" class="input_img">
+                    </div>
+                    <div class="form_buttons">
+                        <button type="button" onclick="hideElement('slidingDiv')" class="cancel_button">
+                            <p>Cancel</p>
+                            <img src="./assets/img/contacts_img/close.svg" alt="">
+                        </button>
+                        <button onclick="saveEditedContact()" type="submit" class="add_button">
+                            <p>Save</p>
+                            <img src="./assets/img/contacts_img/check.svg" alt="">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="slidingPage" class="hidden">
+            <div onclick="hideElement('slidingPage')" class="close_button">
+                <img src="./assets/img/contacts_img/close.svg" alt="Schließen">
+            </div>
+            <div class="contact_content_left">
+                <img src="./assets/img/joinLogo.png" alt="">
+                <h1>Add Contact</h1>
+                <p>Tasks are better with a team!</p>
+            </div>
+            <div class="center_image">
+                <img src="./assets/img/contacts_img/person.png" alt="Person">
+            </div>
+            <div class="add_contact_input_fields">
+                <form onsubmit="addContact(); return false" id="contactForm" class="flex_container">
+                    <div class="input_with_img">
+                        <input id="add_contact_name" name="name" placeholder="Name" class="input_1" type="text" required
+                            minlength="2">
+                        <img src="./assets/img/contacts_img/person.svg" alt="Bild" class="input_img">
+                    </div>
+                    <div class="input_with_img">
+                        <input id="add_contact_email" name="email" placeholder="Email" class="input_1" type="email"
+                            required>
+                        <img src="./assets/img/log_in_img/mail.svg" alt="Bild" class="input_img">
+                    </div>
+                    <div class="input_with_img">
+                        <input id="add_contact_phone" name="phone" placeholder="Phone" class="input_1" type="number"
+                            required>
+                        <img src="./assets/img/contacts_img/call.svg" alt="Phone Icon" class="input_img">
+                    </div>
+                    <div class="form_buttons">
+                        <button type="button" onclick="hideElement('slidingPage')" class="cancel_button">
+                            <p>Cancel</p>
+                            <img src="./assets/img/contacts_img/close.svg" alt="">
+                        </button>
+                        <button type="submit" class="add_button">
+                            <p>Create Contact</p>
+                            <img src="./assets/img/contacts_img/check.svg" alt="">
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+
+    </div>
+
+    <section>
+        <div id="tempDivContact" class="tempDiv hidden">
+            <h1>New Contact added</h1>
+            <img src="./assets/img/board_img/bordi.svg" alt="">
+        </div>
+    </section>
+
+</body>
+
+</html>

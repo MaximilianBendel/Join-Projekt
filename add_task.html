@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/side_menu.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/contacts.css">
+    <link rel="icon" href="./assets/img/favIcon.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="./javascript/firebaseConfig.js"></script>
+    <script src="./javascript/includeHTML.js"></script>
+    <script src="./javascript/board.js"></script>
+    <script src="./javascript/boardHTML.js"></script>
+    <script src="./javascript/addTask.js"></script>
+    <script src="./javascript/add_contact.js"> </script>
+    <script src="./javascript/loadLogInData.js"></script>
+
+</head>
+
+<body onload="initAddTaskSite()">
+    <header class="spaceBetween" w3-include-html="./assets/templates/header.html"></header>
+    <div class="flexbox">
+        <div class="sideMenu" w3-include-html="./assets/templates/side_menu.html"></div>
+        <div class="right-side backgroudColor">
+
+
+            <form onsubmit="addTask(); return false;">
+                <div class="header">
+                    <h1>Add Task</h1>
+                </div>
+                <div>
+                    <div class="positionInputFields">
+                        <div class="leftInput">
+                            <div class="column distanceBetweenIput">
+                                <label for="title">Title<span class="colorRed">*</span></label>
+                                <div class="fake-input">
+                                    <input required id="title" type="text" placeholder="Enter a Title">
+                                </div>
+                            </div>
+                            <div class="column distanceBetweenIput">
+                                <label for="description">Description</label>
+                                <div class="fake-textarea">
+                                    <textarea id="description" class="textarea"
+                                        placeholder="Enter a description"></textarea>
+                                </div>
+                            </div>
+                            <div class="column distanceBetweenIput">
+                                <label for="assignContact">Assigned to</label>
+                                <div class="fake-input">
+                                    <input id="assignContact" onclick="showContacts(event)" oninput="showContacts()"
+                                        placeholder="Select contacts to assign" type="text">
+                                    <div id="contactSection" class="flexbox">
+                                        <img onclick="showContacts(event)" class="taskIcon"
+                                            src="./assets/img/removeExtensionIcon.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="relative">
+                                    <div class="absolute d-none" id="addContact">
+
+                                    </div>
+                                </div>
+                                <div id="addContactIcon">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="verticalLine"> </div>
+
+
+                        <div class="rightInput">
+                            <div class="column distanceBetweenIput">
+                                <label for="date">Due date<span class="colorRed">*</span></label>
+                                <div class="fake-input">
+                                    <input required id="date" type="date" min="">
+                                </div>
+                            </div>
+                            <div class="distanceBetweenIput priorityScaleSection">
+                                <span class="spanWithFlex">Prio</span>
+                                <div>
+                                    <button type="button" onclick="changePrioToUrgent()"
+                                        class="distanceSmall prioButton">
+                                        <span>Urgent</span>
+                                        <img id="urgent" class="priorityImage" src="./assets/img/urgentPriority.png"
+                                            alt="">
+                                    </button>
+                                    <button type="button" onclick="changePrioToMedium()"
+                                        class="mediumPriority prioButton">
+                                        <span>Medium</span>
+                                        <img id="medium" class="priorityImage"
+                                            src="./assets/img/activeMediumPriority.png" alt="">
+                                    </button>
+                                    <button type="button" onclick="changePrioToLow()" class="distanceSmall prioButton">
+                                        <span>Low</span>
+                                        <img id="low" class="priorityImage" src="./assets/img/lowPriority.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="column distanceBetweenIput">
+                                <label for="category">Category<span class="colorRed">*</span></label>
+                                <select required id="category" class="input" id="category"
+                                    placeholder="Select a category">
+                                    <option>Technical Task</option>
+                                    <option>User Story</option>
+                                </select>
+                            </div>
+
+                            <div class="column distanceBetweenIput">
+                                <label for="subtask">Subtasks</label>
+                                <div class="fake-input">
+                                    <input type="text" id="subtask" placeholder="Add new subtask">
+                                    <img onclick="addSubTask()" class="taskIcon" src="./assets/img/addSubTask.png" />
+                                </div>
+                                <div id="addSubTask">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BackgroudnColorTopList1Responsive" class="BackgroudnColorTopList1Responsive">
+                            <div class="positionButton">
+                                <p><span class="colorRed">* </span>This field is required</p>
+                                <div class="flexboxWithGap">
+                                    <button class="whiteButton centery" onclick="resetSubTask()" type="reset">
+                                        <p>Clear</p>
+                                        <img src="./assets/img/contacts_img/close.svg" alt="">
+                                    </button>
+                                    <button type="submit" class="createButton centery"> <span> Create Task</span> <img
+                                            src="./assets/img/hook.svg" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="BackgroudnColorTopList1">
+                        <div class="positionButton">
+                            <p><span class="colorRed">* </span>This field is required</p>
+                            <div class="flexboxWithGap">
+                                <button class="whiteButton centery" onclick="resetSubTask()" type="reset">
+                                    <p>Clear</p>
+                                    <img src="./assets/img/contacts_img/close.svg" alt="">
+                                </button>
+                                <button type="submit" class="createButton centery"> <span> Create Task</span> <img
+                                        src="./assets/img/hook.svg" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+
+    <section>
+        <div id="tempDivTask" class="tempDivTask hidden">
+            <h1>Task added to Board</h1>
+            <img src="./assets/img/board_img/bordi.svg" alt="">
+        </div>
+
+    </section>
+
+</html>

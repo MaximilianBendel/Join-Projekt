@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/summary.css">
+    <link rel="stylesheet" href="./css/side_menu.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/addTask.css">
+    <link rel="stylesheet" href="./css/summary_responsive.css">
+    <link rel="icon" href="./assets/img/favIcon.png" type="image/x-icon">
+    <script src="./javascript/includeHTML.js"></script>
+    <script src="./javascript/board.js"></script>
+    <script src="./javascript/boardHTML.js"></script>
+    <script src="./javascript/databank.js"></script>
+    <script src="./javascript/summary_user.js"></script>
+    <script src="./javascript/addTask.js"></script>
+    <script src="./javascript/welcomeScreen.js"></script>
+    <script src="./javascript/loadLogInData.js"></script>
+</head>
+
+<body onload="start()">
+    <header class="spaceBetween spaceBetweenMobile" w3-include-html="./assets/templates/header.html"></header>
+
+
+    <div class="sideMenu" w3-include-html="./assets/templates/side_menu.html"></div>
+    <div class="rightSide">
+
+        <section class="join360KeyMetricsAtAGlance">
+            <div class="joinKeyMetrics">
+                <h1>JOIN 360</h1>
+                <div class="joinKeyMetricsSeperator"></div>
+                <p>Key Metrics at a Glance</p>
+                <div class="joinKeyMetricsSeperatorNone"></div>
+            </div>
+        </section>
+
+        <section class="summaryContent">
+            <div class="firstRow">
+                <div class="summaryContentRows imageHover summaryContentRowsLeft">
+                    <div class="summaryContentImg1">
+                    </div>
+                    <div class="summaryContentInfo">
+                        <h1 id="allTasks"></h1>
+                        <p>To-Do</p>
+                    </div>
+                </div>
+                <div class="summaryContentRows">
+                    <div class="summaryContentImg2">
+                    </div>
+                    <div class="summaryContentInfo">
+                        <h1 id="numberDoneTasks">1</h1>
+                        <p>Done</p>
+                    </div>
+                </div>
+            </div>
+            <div class="summaryContentRow2">
+                <div class="summaryContentRow2Left">
+                    <div class="summaryContentImgSecondRow">
+                        <img src="./assets/img/summary_user_img/Prio alta.png" alt="">
+                    </div>
+                    <div class="summaryContentInfo">
+                        <h1 id="numberUrgentTasks">1</h1>
+                        <p>Urgent</p>
+                    </div>
+                </div>
+                <div class="summaryContentInfoSeperator"></div>
+                <div class="summaryContentInfo">
+                    <h3 id="nearestDeadline">October 16, 2024</h3>
+                    <p id="deadlineText">Upcoming deadline</p>
+                </div>
+                <div class="summaryContentInfo">
+                    <h3 id="noDeadline" style="display: none;">No upcoming Deadline</h3>
+                </div>
+            </div>
+
+            <div class="summaryContentRow3">
+                <div class="summaryContentRows3 left">
+                    <h1 id="allTasksInBoard"></h1>
+                    <p>Task in <br>Board</p>
+                </div>
+                <div class="summaryContentRows3 center">
+                    <h1 id="numberProgressTasks">2</h1>
+                    <p>Task in <br>Progress</p>
+                </div>
+                <div class="summaryContentRows3 right">
+                    <h1 id="numberFeedbackTasks">2</h1>
+                    <p>Awaiting <br> Feedback</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="summaryGreetUser">
+            <h1>Good Morning,</h1>
+            <h2 id="activeUser"></h2>
+        </section>
+    </div>
+
+
+    <!-- Ensure this section in summaryUser.html -->
+    <div id="welcomeScreen" class="welcomeScreen">
+        <h1 class="welcomeMessage">
+            Good Morning, <span id="username" class="username"></span>
+        </h1>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+
+</html>

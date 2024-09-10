@@ -1,0 +1,465 @@
+body {
+    margin: auto;
+    background: #F6F7F8;
+    font-family: 'Inter';
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.cursorpointer {
+    cursor: pointer;
+}
+
+.error-message {
+    display: flex;
+    position: absolute;
+    font-size: 13px;
+    color: #FF8190;
+    left: 10px;
+    /* top: 2px; */
+    bottom: -17px;
+}
+
+.error-border {
+    border: 1px solid red !important;
+}
+
+
+.logo {
+    margin-left: 67px;
+    margin-top: 80px;
+}
+
+.log-in-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 48px 88px 48px 88px;
+    gap: 32px;
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    background-color: #FFFFFF;
+    position: absolute;
+    margin-top: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.log-in-window p {
+    font-size: 61px;
+    font-weight: 700;
+    color: black;
+    margin: 0;
+}
+
+.separator {
+    height: 3px;
+    /* Höhe des Trennstrichs */
+    width: 150px;
+    background-color: #29ABE2;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input1 {
+    min-width: 380px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    padding: 12px 21px 12px 21px;
+    line-height: 24px;
+    font-size: 20px;
+}
+
+.input1::placeholder {
+    color: #D1D1D1;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-img {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-img .input-img {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    /* Höhe des Bilds anpassen */
+    width: auto;
+    /* Breite des Bilds anpassen */
+}
+
+.remember-checkbox-container {
+    display: flex;
+    justify-content: center;
+    min-width: 422px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: 2px solid #2A3647;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    color: black;
+    left: 7px;
+    top: -7px;
+    width: 5px;
+    height: 16px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(40deg);
+}
+
+.log-in-container {
+    display: flex;
+}
+
+.log-in-container button {
+    padding: 15px 24px 15px 24px;
+    gap: 10px;
+    border-radius: 8px;
+    font-size: 21px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid #2A3647;
+}
+
+.log-in-button {
+    background: #2A3647;
+    color: #FFFFFF;
+}
+
+.log-in-button:hover {
+    background: #29ABE2;
+    color: #FFFFFF;
+    border: 1px solid #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    animation: Smart animate;
+    animation-timing-function: ease-in-out;
+    animation-duration: 100ms;
+}
+
+.log-in-button:active {
+    background: #2A3647;
+    color: #FFFFFF;
+}
+
+.privacy-sign-up {
+    text-decoration: none;
+    color: #29ABE2;
+}
+
+.privacy-sign-up:hover {
+    text-decoration: underline;
+}
+
+.privacy-links-container {
+    display: flex;
+    position: absolute;
+    gap: 35px;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.privacy-links-container a {
+    padding: 8px;
+    font-size: 16px;
+    color: #CDCDCD;
+    transition: width 0.3s ease;
+}
+
+.privacy-links-container a:link {
+    text-decoration: none;
+}
+
+.privacy-links-container a:hover {
+    text-decoration: none;
+    color: #29ABE2;
+    font-weight: 700;
+    width: auto;
+}
+
+.arrow-to-log-in-page {
+    position: relative;
+    top: 70px;
+    right: 250px;
+    cursor: pointer;
+}
+
+.log-in-button:disabled {
+    background: #3d4e66d4;
+    cursor: not-allowed;
+}
+
+.log-in-button:disabled:hover {
+    background: #3d4e66b5;
+    cursor: not-allowed;
+    border: 1px solid #00000040 !important;
+    box-shadow: 0px 0px 0px 0px !important;
+}
+
+.sign-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid #2A3647;
+    background: #2A3647;
+    height: 74px;
+    position: absolute;
+    top: 96%;
+    left: 50%;
+    padding: 0px 25px 0px 25px;
+    transform: translate(-50%, -50%);
+    transition: top 800ms ease;
+}
+
+.sign-up-container span {
+    color: #FFFFFF;
+}
+
+.sign-up-container.move-up {
+    top: 55%;
+}
+
+.privacy-links-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.privacy-links-container div {
+    margin: 0 10px;
+}
+
+.privacy-links-container a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #CDCDCD;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    padding: 35px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    overflow-y: auto;
+    border-radius: 25px;
+    transform: translate(-50%, -50%);
+}
+
+.popup h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.popup p {
+    text-align: justify;
+}
+
+@media (max-width:1200px) {
+    .logo {
+        width: 100px;
+        height: 120px;
+    }
+    .log-in-window {
+        padding: 30px 68px 30px 68px;
+    }
+}
+
+@media (max-width:970px) {
+    .logo {
+        margin-left: 46px;
+        margin-top: 50px;
+        width: 95px;
+        height: 110px;
+    }
+}
+
+@media (max-width:900px) {
+    .arrow-to-log-in-page {
+        right: 220px;
+    }
+    .log-in-window {
+        padding: 30px 50px 30px 50px;
+    }
+    .log-in-window {
+        top: 55%;
+    }
+}
+
+@media (max-width:780px) {
+    .logo {
+        margin-left: 46px;
+        margin-top: 50px;
+        width: 75px;
+        height: 95px;
+    }
+}
+
+@media (max-width:644px) {
+    .privacy-links-container div {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width:560px) {
+    .log-in-window {
+        padding: 15px 30px 15px 30px;
+        top: 56%;
+    }
+    .input1 {
+        min-width: 320px;
+    }
+    .arrow-to-log-in-page {
+        right: 185px;
+    }
+}
+
+@media (max-width:505px) {
+    .remember-checkbox-container {
+        min-width: 250px;
+    }
+}
+
+@media (max-width:450px) {
+    .log-in-window {
+        padding: 5px 15px 10px 15px;
+        gap: 20px;
+    }
+    .arrow-to-log-in-page {
+        right: 152px;
+    }
+    .input1 {
+        min-width: 280px;
+    }
+}
+
+@media (max-width:390px) {
+    .logo {
+        margin-left: 37px;
+        margin-top: 38px;
+        width: 64px;
+        height: 78px;
+    }
+    .log-in-window {
+        top: 48%;
+    }
+    .input1 {
+        min-width: 235px;
+    }
+    .arrow-to-log-in-page {
+        right: 127px;
+    }
+    .log-in-window p {
+        font-size: 47px;
+    }
+}
+
+@media (max-height:700px) {
+    .log-in-window {
+        top: 54%;
+        gap: 16px;
+    }
+    .logo {
+        margin-left: 22px;
+        margin-top: 18px;
+        width: 56px;
+        height: 70px;
+    }
+    .privacy-links-container {
+        top: 94%;
+    }
+}

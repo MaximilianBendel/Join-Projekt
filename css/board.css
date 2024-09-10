@@ -1,0 +1,748 @@
+body {
+    font-family: 'Inter';
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    height: 60px;
+    padding: 0px 45px 0px 55px;
+    margin-bottom: 30px;
+}
+
+.editContainerResponsive {
+    width: 80% !important;
+}
+
+.createButtonEdit {
+    background-color: #2A3647;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 21px;
+    padding: 16px;
+    border-radius: 10px;
+    width: 183px;
+    height: 56px;
+    border: none;
+    margin-top: 20px;
+}
+
+.subtasksContactsFlexContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.headerBoard {
+    display: flex !important;
+    justify-content: space-between !important;
+    position: unset !important;
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+    padding-left: 60px !important;
+}
+
+.canbanBoard {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 64px;
+    gap: 26px;
+    overflow: auto;
+    padding-top: 20px;
+}
+
+.d-none {
+    display: none;
+}
+
+.dragArea {
+    height: 96vh;
+}
+
+.taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spaceBetween {
+    display: flex;
+    align-items: center;
+}
+
+.spaceBetweenBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.verticalCenter {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.fourth-size {
+    min-width: 240px;
+}
+
+.card {
+    width: 240px;
+    background-color: #FFFFFF;
+    border: 1px gray solid;
+    border-radius: 24px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px 3px #00000014;
+    cursor: pointer;
+}
+
+.card:hover {
+    animation: wobble 0.5s;
+}
+
+@keyframes wobble {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.categorySmallTask {
+    width: 144px;
+    height: 27px;
+}
+
+.taskOnBoardSite {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999999;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dragArea {
+    margin-top: 20px;
+}
+
+.d-noneAddTask {
+    transform: translateX(100%);
+}
+
+.containeraddTaskInBoardSize {
+    width: 700px;
+    height: 65vh;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 30px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.containerOpenTaskInBoardSize {
+    font-size: 20px;
+    width: 525px;
+    background-color: #FFFFFF;
+    padding: 48px 40px 48px 40px;
+    border-radius: 30px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    gap: 24px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 65vh;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    width: 700px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation-name: slideIn;
+}
+
+.slide-out {
+    animation-name: slideOut;
+}
+
+.noTask {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border: gray 1px dashed;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px #00000029;
+    height: 48px;
+    width: 246px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.whiteButton {
+    color: #2A3647;
+    background-color: white;
+    border: 8px;
+    font-weight: 700;
+    font-size: 21px;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    width: 110px;
+    height: 56px;
+}
+
+.whiteButton:hover {
+    color: rgb(43, 171, 226);
+    border: 1px solid rgb(43, 171, 226);
+    cursor: pointer;
+}
+
+.whiteButton:hover img{
+    content: url('../assets/img/contacts_img/Vector\ \(1\).svg');
+
+}
+.createButton {
+    background-color: #2A3647;
+    color: #FFFFFF;
+    /* border: 8px; */
+    font-weight: 700;
+    font-size: 21px;
+    padding: 16px;
+    border-radius: 10px;
+    width: 183px;
+    height: 56px;
+    border: none;
+}
+
+.createButton:hover {
+    background-color: rgb(43, 171, 226);
+    cursor: pointer;
+}
+
+.iconOnBigTask {
+    color: black;
+    height: 28px;
+}
+
+.categoryOnBigTask {
+    height: 32px;
+}
+
+.titleOnBigTask {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.priorityImgOnBigTask {
+    width: 17px;
+    height: 12px;
+}
+
+#progressbar {
+    background-color: #F4F4F4;
+    border-radius: 8px;
+}
+
+#progressbar>div {
+    background-color: #4489FF;
+    height: 8px;
+    border-radius: 8px;
+}
+
+.authorityImageContainer {
+    width: 32px;
+    height: 32px;
+    border-radius: 35px;
+    border: 2px, solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -8px;
+}
+
+.authorityIcon {
+    display: flex;
+}
+
+.searchbarcontainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Abstand zwischen den Elementen */
+}
+
+.searchbarwrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.searchbarinput {
+    min-width: 312px;
+    border-radius: 10px;
+    border: 1px solid #A8A8A8;
+    padding: 8px 16px;
+    padding-right: 50px;
+    /* Platz für das Bild und den Separator */
+    box-sizing: border-box;
+}
+
+.searchbarinput::placeholder {
+    color: #D1D1D1;
+}
+
+.separator {
+    position: absolute;
+    right: 36px;
+    width: 1px;
+    height: 70%;
+    background-color: #D1D1D1;
+}
+
+.searchbarimage {
+    position: absolute;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+.searchbarbutton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    border: 1px solid #A8A8A8;
+    background-color: #ffffff;
+    cursor: pointer;
+    color: white;
+    background: #2A3647;
+    text-decoration: none;
+}
+
+.ContactsAndPriorityContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonimage {
+    width: 18px;
+    height: 18px;
+}
+
+.plusbutton {
+    height: 17.6px;
+}
+
+.toDoText {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.inProgressText {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.awaitFeedback {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.doneText {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.categoryandexitbuttoncontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.exitButtonBigTask {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.paragraphOnBigTask {
+    font-size: 20px;
+}
+
+.dateBigTaskContainer {
+    display: flex;
+    gap: 25px;
+}
+
+.spanDateBigTask {
+    color: #42526E;
+}
+
+.priorityBigTaskContainer {
+    display: flex;
+    gap: 25px;
+}
+
+.priorityBigTaskSmallContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.spanBigTaskPriorityText {
+    color: #42526E;
+}
+
+.contactBigTaskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contactsBigTask {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.spanTextBigTask {
+    color: #42526E;
+}
+
+.subtaskBigTaskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.subtaskTextBigTask {
+    color: #42526E;
+}
+
+.subtaskcontactsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.buttonsBigTaskContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.iconDeleteBigTask {
+    width: 16px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.iconEditBigTask {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.buttonsGapBigTask {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media(max-width:956px) {
+    .canbanBoard {
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        overflow-x: hidden;
+        width: 100vw;
+    }
+
+    .dragArea {
+        display: flex;
+        gap: 20px;
+        overflow: scroll;
+        scrollbar-width: none;
+        height: auto;
+    }
+
+    .fourth-size {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .card {
+        min-width: 225px;
+        max-width: 205px;
+        height: 280px;
+    }
+
+    .taskHeader {
+        gap: 20px;
+        justify-content: space-between;
+        width: 70vw;
+    }
+
+    .headerBoard {
+        align-items: flex-start;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .noTask {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        border: #A8A8A8 1px dotted;
+        border-radius: 10px;
+        height: 48px;
+        width: 70vw;
+        background-color: #E7E7E7;
+        align-items: center;
+        margin-top: 10px;
+        color: #A8A8A8;
+    }
+
+
+}
+
+@media(max-width:800px) {
+    .content-wrapper-board {
+        position: absolute;
+        width: 100%;
+        height: 75%;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    .containerOpenTaskInBoardSize {
+        width: 65%;
+        height: 50%;
+    }
+    .titleOnBigTask {
+        font-size: 50px;
+    }
+
+    .containeraddTaskInBoardSize {
+        width: 93%;
+        height: 92%;
+        background-color: #FFFFFF;
+        padding: 30px;
+        border-radius: 8px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .sideMenuResponsive {
+        height: 0px;
+    }
+
+    .sticky-footer {
+        margin-top: auto;
+        background-color: #f8f9fa;
+        /* Beispielhintergrundfarbe */
+        padding: 20px;
+        /* Beispielpadding */
+        text-align: center;
+        /* Zentrierter Text */
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Container, der den Hauptinhalt und den Footer enthält */
+    .content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+     
+
+  
+
+    .headerBoard {
+        display: flex !important;
+        justify-content: space-between !important;
+        position: unset !important;
+        padding-bottom: 20px !important;
+        padding-top: 20px !important;
+        padding-left: 60px !important;
+    }
+    
+}
+
+@media(max-width:540px) {
+    .searchbuttonText {
+        display: none;
+    }
+
+    .titleOnBigTask {
+        font-size: 42px;
+    }
+
+    .searchbarbutton {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 13px;
+        border-radius: 10px;
+        border: 1px solid #A8A8A8;
+        background-color: #ffffff;
+        cursor: pointer;
+        color: white;
+        background: #2A3647;
+        position: absolute;
+        top: 25px;
+        left: 270px;
+    }
+
+    .searchbarinput {
+        min-width: 270px;
+    }
+}
+
+@media (max-width:420px) {
+    .headerBoard {
+        padding-bottom: 20px !important;
+        padding-top: 20px !important;
+        padding-left: 5px !important;
+    }
+}
+
+@media (max-width:400px) {
+    .taskHeader {
+        width: 90vw;
+    }
+    .noTask {
+        width: 90vw;
+    }
+    .titleOnBigTask {
+        font-size: 36px;
+    }
+}
+
+@media (max-width:399px) {
+    .footer_links_mobile {
+
+        white-space: nowrap;
+    }
+
+    .mobile_links {
+
+        padding: 3px;
+    }
+
+    .footer_links_mobile {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .header {
+        padding: 15px 20px 15px 4px !important;
+    }
+
+    .searchbarbutton {
+        left: 250px;
+    }
+
+    .canbanBoard {
+        padding: 0 10px;
+    }
+}
+
+@media (min-width:1440px) {
+    .spaceBetween {
+        max-width: none;
+    }
+    .canbanBoard {
+        max-width: 1440px;
+    }
+    .headerBoard {
+        max-width: 1440px;
+    }
+}
+
+@media (min-width:1351px) {
+    .containeraddTaskInBoardSize {
+        width: 82%;
+    }
+}
+
+@media (min-height: 2000px) and (max-width: 800px) {
+    .content-wrapper-board {
+        height: 90% !important;
+    }
+}
+
