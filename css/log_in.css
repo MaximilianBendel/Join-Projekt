@@ -176,6 +176,58 @@ body {
     margin: 0;
 }
 
+@media (min-width: 1441px) {
+    .log-in-window p {
+        font-size: 81px;
+    }
+    .login-input-container {
+        width: 70% !important;
+    }
+    .input1 {
+        min-width: 100% !important;
+    }
+    .input1::placeholder {
+        font-size: 24px !important;
+    }
+    .log-in-window {
+        width: 33%;
+    }
+    .input-with-img .input-img {
+        right: -3% !important;
+    }
+    .sign-up p {
+        font-size: 24px;
+    }
+    .sign-up button {
+        font-size: 22px;
+    }
+    @keyframes logo-animation {
+        from {
+            width: 274px;
+            height: 334px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -167px;
+            margin-left: -137px;
+            z-index: 999;
+        }
+    
+        to {
+            position: absolute;
+            top: 80px;
+            left: 77px;
+            width: 13%;
+            height: 11%;
+            margin-top: 0px;
+            margin-left: 0px;
+        }
+    }
+    .log-in-window {
+        padding: 76px 115px 76px 115px;
+    }
+}
+
 .cursorpointer {
     cursor: pointer;
 }
