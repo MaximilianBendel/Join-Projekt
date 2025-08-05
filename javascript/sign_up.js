@@ -34,8 +34,6 @@ async function saveSignUpDataInFirebase() {
     }
 }
 
-
-
 function changePasswordImgLogIn() {
     let inputPassword = document.getElementById('passwordLogIn').value;
     let image = document.getElementById('passwordLogInImg');
@@ -128,7 +126,7 @@ function finalSubmit(signUpContainer) {
         signUpContainer.classList.add('move-up');
     }, 10);
     setTimeout(() => {
-        window.location.href = './log_in.html';
+        window.location.href = './index.html';
     }, 2000);
 }
 

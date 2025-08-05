@@ -1,7 +1,7 @@
 let tasks = [];
 let subtasks = [];
 let prio = "medium";
-let url = 'https://jointask-cedc0-default-rtdb.europe-west1.firebasedatabase.app/.json';
+let url = 'https://join-portfolio-7b325-default-rtdb.europe-west1.firebasedatabase.app/Tasks.json';
 let board = "toDo";
 let authorityForTask = [];
 let allContacts = [];
@@ -87,10 +87,15 @@ async function saveTasksInFirebase() {
 
 async function loadTasksFromFirebase() {
     let response = await fetch(url);
-    tasks = await response.json();
-    if (tasks == null) {
+    let data = await response.json();
+    if (!data) {
         tasks = [];
+    } else if (Array.isArray(data)) {
+        tasks = data
+    } else {
+        tasks = Object.values(data);
     }
+
     loadTasks();
 }
 
